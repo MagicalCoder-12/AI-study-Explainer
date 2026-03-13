@@ -9,6 +9,7 @@ An AI-powered web application that helps students understand complex study topic
 - Real-time AI-generated explanations
 - Support for various study topics (science, math, history, etc.)
 - Markdown-formatted output for better readability
+- Daily rate limiting (30 requests per API)
 
 ## How AI API Was Used
 
@@ -29,6 +30,7 @@ The application integrates two AI APIs with automatic fallback:
 - Prompts designed to generate concise, educational content
 - Comprehensive logging of usage statistics and metadata
 - Error handling with graceful degradation
+- Daily rate limiting: 30 requests per API (resets daily)
 
 ## Setup Instructions
 
