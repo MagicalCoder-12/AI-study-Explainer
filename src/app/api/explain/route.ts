@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     // If Gemini failed or rate limited, try Groq
     if (!explanation && rateLimiter.canUseGroq()) {
       try {
-        const model = process.env.GROQ_MODEL ?? 'llama3-8b-8192';
+        const model = process.env.GROQ_MODEL ?? 'openai/gpt-oss-120b';
         console.log(`Trying Groq API with model: ${model}`);
         const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
           method: 'POST',
