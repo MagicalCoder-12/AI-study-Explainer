@@ -14,24 +14,24 @@ export class RateLimiter {
   private data: RateLimitData;
 
   constructor() {
-    this.loadData();
+    this.data = this.loadData();
   }
 
-  private loadData(): void {
+  private loadData(): RateLimitData {
     try {
       if (fs.existsSync(RATE_LIMIT_FILE)) {
         const fileContent = fs.readFileSync(RATE_LIMIT_FILE, 'utf-8');
-        this.data = JSON.parse(fileContent);
-      } else {
-        this.data = {
-          date: new Date().toDateString(),
-          geminiRequests: 0,
-          groqRequests: 0,
-        };
+        return JSON.parse(fileContent) as RateLimitData;
       }
+
+      return {
+        date: new Date().toDateString(),
+        geminiRequests: 0,
+        groqRequests: 0,
+      };
     } catch (error) {
       console.error('Error loading rate limit data:', error);
-      this.data = {
+      return {
         date: new Date().toDateString(),
         geminiRequests: 0,
         groqRequests: 0,
