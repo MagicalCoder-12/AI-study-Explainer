@@ -40,7 +40,7 @@ The application integrates two AI APIs with automatic fallback:
 
 1. **Clone and install dependencies:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/MagicalCoder-12/AI-study-Explainer.git
    cd ai-study-explainer
    npm install
    ```
